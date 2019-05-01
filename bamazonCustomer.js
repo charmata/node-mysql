@@ -11,11 +11,11 @@ var connection = mysql.createConnection({
   database: "bamazon"
 });
 
-var app = function() {
+var app = () => {
   showAllItems();
 };
 
-var showAllItems = function() {
+var showAllItems = () => {
   connection.connect(err => {
     if (err) throw err;
     connection.query("SELECT * FROM products", (err, res) => {

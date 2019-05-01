@@ -21,9 +21,9 @@ var showAllItems = () => {
     connection.query("SELECT * FROM products", (err, res) => {
       if (err) throw err;
       var results = [];
-      results.push(["Product", "Department", "Price", "In Stock"]);
+      results.push(["ID", "Product", "Price"]);
       res.forEach(row => {
-        results.push([row.product_name, row.department_name, row.price, row.stock_quantity]);
+        results.push([row.item_id, row.product_name, row.price]);
       });
       console.log(table(results));
       connection.end();
